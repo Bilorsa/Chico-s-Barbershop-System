@@ -1,0 +1,6 @@
+<?php
+$title='Services'; require_once __DIR__.'/../includes/functions.php'; requireAdmin(); $pdo=db();
+if($_SERVER['REQUEST_METHOD']==='POST'){verifyCsrf();$name=trim($_POST['name']);$duration=(int)$_POST['duration'];$price=(float)$_POST['price'];if($name&&$duration>0&&$price>=0){$stmt=$pdo->prepare("INSERT INTO services(name,duration_minutes,price,active) VALUES(?,?,?,1)");$stmt->execute([$name,$duration,$price]);flash('success','Service added.');}redirect('services.php');}
+$rows=$pdo->query("SELECT * FROM services ORDER BY active DESC,name")->fetchAll();require __DIR__.'/../includes/header.php';?>
+<div class="grid"><div class="card"><h2>Add service</h2><form method="post"><input type="hidden" name="csrf" value="<?=e(csrfToken())?>"><div class="field"><label>Name</label><input name="name" required></div><div class="field"><label>Duration (minutes)</label><input type="number" name="duration" min="15" required></div><div class="field"><label>Price</label><input type="number" name="price" step=".01" min="0" required></div><br><button>Add</button></form></div><div class="card"><h2>Services</h2><table class="table"><?php foreach($rows as $r):?><tr><td><?=e($r['name'])?></td><td><?=$r['duration_minutes']?> min</td><td>R<?=number_format($r['price'],2)?></td></tr><?php endforeach;?></table></div></div>
+<?php require __DIR__.'/../includes/footer.php'; ?>
