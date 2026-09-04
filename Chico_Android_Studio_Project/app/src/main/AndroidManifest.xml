@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Chico"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Chico">
+
+        <!-- Splash Screen -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Login -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <!-- Registration -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <!-- Customer Dashboard -->
+        <activity
+            android:name=".CustomerDashboardActivity"
+            android:exported="false" />
+
+        <!-- Booking -->
+        <activity
+            android:name=".BookingActivity"
+            android:exported="false" />
+
+        <!-- My Bookings -->
+        <activity
+            android:name=".MyBookingsActivity"
+            android:exported="false" />
+
+        <!-- Customer Profile -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <!-- Admin Dashboard -->
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:exported="false" />
+
+        <!-- Customer Management -->
+        <activity
+            android:name=".CustomerManagementActivity"
+            android:exported="false" />
+
+        <!-- Appointment Management -->
+        <activity
+            android:name=".AppointmentManagementActivity"
+            android:exported="false" />
+
+        <!-- Payment Management -->
+        <activity
+            android:name=".PaymentManagementActivity"
+            android:exported="false" />
+
+        <!-- Reports -->
+        <activity
+            android:name=".ReportsActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

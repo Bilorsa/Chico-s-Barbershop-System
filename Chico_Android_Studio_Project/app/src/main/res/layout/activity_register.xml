@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="28dp">
+
+        <!-- Logo -->
+
+        <ImageView
+            android:id="@+id/chicoLogo"
+            android:layout_width="180dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="Chico Barbershop"
+            android:src="@drawable/chico_logo"
+            android:scaleType="fitCenter" />
+
+        <!-- Heading -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join Chico's Barbershop"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Name -->
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Full name"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:backgroundTint="#00AEEF"
+            android:inputType="textPersonName"
+            android:padding="12dp" />
+
+        <!-- Phone -->
+
+        <EditText
+            android:id="@+id/phoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Phone number"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:backgroundTint="#00AEEF"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Email -->
+
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Email address"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:backgroundTint="#00AEEF"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Password -->
+
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Password"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:backgroundTint="#00AEEF"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Confirm Password -->
+
+        <EditText
+            android:id="@+id/confirmPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Confirm password"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:backgroundTint="#00AEEF"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Register Button -->
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="CREATE ACCOUNT"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:backgroundTint="#00AEEF"
+            android:layout_marginTop="24dp" />
+
+        <!-- Login -->
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?  Login"
+            android:textColor="#00AEEF"
+            android:textSize="14sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="25dp" />
+
+    </LinearLayout>
+
+</ScrollView>

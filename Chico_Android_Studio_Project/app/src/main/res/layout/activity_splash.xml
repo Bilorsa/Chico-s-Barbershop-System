@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#050505"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/chicoLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="Chico's Barbershop Logo"
+        android:src="@drawable/chico_logo"
+        android:scaleType="fitCenter" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <ProgressBar
+        android:id="@+id/loadingBar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#00AEEF" />
+
+</LinearLayout>
