@@ -24,13 +24,6 @@ A complete PHP + PDO + MySQL starter application with:
 4. Import `database/schema.sql` into MySQL.
 5. Visit `http://localhost/barbershop/`.
 
-## Demo admin
-Email: admin@sharpcut.test
-Password: password
 
-Change the demo admin password before production.
 
-## Notes
-Opening hours are 09:00–18:00 in `book.php`.
-The overlap check is performed in a transaction with a locking query. For high-concurrency production systems, consider stronger slot locking/unique scheduling strategies.
-This is intentionally framework-free so the PHP/PDO/MySQL architecture is easy to understand and extend.
+
