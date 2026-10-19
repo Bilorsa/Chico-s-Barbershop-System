@@ -3,14 +3,10 @@ name: Chico Android CI
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
 
   pull_request:
-    branches:
-      - main
-      - master
+    branches: [main, master]
 
   workflow_dispatch:
 
@@ -34,11 +30,6 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-        with:
-          packages: |
-            platform-tools
-            platforms;android-35
-            build-tools;35.0.0
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
