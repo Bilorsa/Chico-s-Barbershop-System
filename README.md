@@ -4,7 +4,7 @@ A modern, responsive barbershop booking system built with **PHP, PDO, MySQL, HTM
 
 The system provides a customer-facing website, online appointment booking, customer authentication, a My Bookings area, and an administration panel for managing appointments, services and barbers.
 
-🎥YT LINK:  https://youtu.be/VoznU7Iesu8
+🎥YT LINK:  https://youtu.be/We45U3JbSWo
 ---
 
 ## ✂️ Project Overview
