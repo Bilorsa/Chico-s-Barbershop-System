@@ -1,55 +1,67 @@
-name: Android CI
+
+name: Chico Android CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [main, master]
+
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [main, master]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  test-and-build:
+    name: Test and Build Chico
     runs-on: ubuntu-latest
 
+    env:
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
+          distribution: temurin
           java-version: '17'
-          distribution: 'temurin'
 
-      # 1. Cache the specific Android SDK directories before running setup-android
-      - name: Cache Android SDK
-        id: cache-android-sdk
-        uses: actions/cache@v4
-        with:
-          path: |
-            /usr/local/lib/android/sdk/platforms/android-35
-            /usr/local/lib/android/sdk/build-tools/35.0.0
-          key: ${{ runner.os }}-android-sdk-35-35.0.0
+      - name: Verify Android SDK
+        run: |
+          echo "Android SDK: $ANDROID_HOME"
+          test -d "$ANDROID_HOME"
+          ls "$ANDROID_HOME"
 
-      # 2. Setup Android SDK (Fixed space-separated package syntax)
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
-
-      # 3. Setup Gradle with built-in dependency & wrapper caching
-      - name: Setup Gradle
+      - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' }}
 
-      - name: Grant execute permission for gradlew
+      - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
-      - name: Build Debug APK
+      - name: Run unit tests
+        run: ./gradlew test
+
+      - name: Build debug APK
         run: ./gradlew assembleDebug
 
-      - name: Upload APK Artifact
+      - name: Upload test reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: Chico-test-reports
+          path: app/build/reports/tests/
+          if-no-files-found: ignore
+
+      - name: Upload debug APK
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Chico-debug-APK
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
