@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">467088558287</string>
+    <string name="google_api_key" translatable="false">AIzaSyB7y9rF0weY0TZTnLGW-8B0nv5DdlsUTVk</string>
+    <string name="google_app_id" translatable="false">1:467088558287:android:4113d94f665cc220028fba</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB7y9rF0weY0TZTnLGW-8B0nv5DdlsUTVk</string>
+    <string name="google_storage_bucket" translatable="false">chico-barbershop.firebasestorage.app</string>
+    <string name="project_id" translatable="false">chico-barbershop</string>
+</resources>

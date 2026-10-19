@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "467088558287",
+    "project_id": "chico-barbershop",
+    "storage_bucket": "chico-barbershop.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467088558287:android:4113d94f665cc220028fba",
+        "android_client_info": {
+          "package_name": "com.example.chico"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7y9rF0weY0TZTnLGW-8B0nv5DdlsUTVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#111111</color>
+    <color name="white">#FFFFFF</color>
+    <string name="already_cancelled">This appointment is already cancelled.</string>
+    <string name="app_name">Chico</string>
+    <string name="appointment_cancelled_label">THIS APPOINTMENT HAS BEEN CANCELLED</string>
+    <string name="appointment_missing">This appointment no longer exists.</string>
+    <string name="back_to_dashboard">BACK TO DASHBOARD</string>
+    <string name="booking_details">Date: %1$s\nTime: %2$s\nPrice: R%3$s</string>
+    <string name="booking_status">Status: %1$s</string>
+    <string name="cancel_appointment">CANCEL APPOINTMENT</string>
+    <string name="cancel_dialog_message">Are you sure you want to cancel this appointment?</string>
+    <string name="cancel_dialog_title">Cancel appointment</string>
+    <string name="cancellation_failed">Could not cancel appointment. Please try again.</string>
+    <string name="cancellation_success">Appointment cancelled successfully.</string>
+    <string name="cannot_cancel_others_booking">You cannot cancel this appointment.</string>
+    <string name="confirm_cancel_booking">CANCEL BOOKING</string>
+    <string name="gcm_defaultSenderId" translatable="false">467088558287</string>
+    <string name="google_api_key" translatable="false">AIzaSyB7y9rF0weY0TZTnLGW-8B0nv5DdlsUTVk</string>
+    <string name="google_app_id" translatable="false">1:467088558287:android:4113d94f665cc220028fba</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB7y9rF0weY0TZTnLGW-8B0nv5DdlsUTVk</string>
+    <string name="google_storage_bucket" translatable="false">chico-barbershop.firebasestorage.app</string>
+    <string name="keep_booking">KEEP BOOKING</string>
+    <string name="load_bookings_failed">Could not load bookings. Please try again.</string>
+    <string name="loading_bookings">Loading your bookings…</string>
+    <string name="login_again">Please log in again.</string>
+    <string name="login_to_view_bookings">Please log in to view your bookings.</string>
+    <string name="my_bookings_subtitle">View and manage your upcoming appointments.</string>
+    <string name="my_bookings_title">MY BOOKINGS</string>
+    <string name="no_bookings">You have no bookings yet.</string>
+    <string name="not_specified">Not specified</string>
+    <string name="project_id" translatable="false">chico-barbershop</string>
+    <string name="unknown_service">Unknown service</string>
+    <style name="Theme.Chico" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#111111</item>
+        <item name="android:navigationBarColor">#111111</item>
+        <item name="android:statusBarColor">#111111</item>
+    </style>
+</resources>

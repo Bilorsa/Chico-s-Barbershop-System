@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chico</string>
+
+    <!-- My Bookings screen -->
+    <string name="my_bookings_title">MY BOOKINGS</string>
+    <string name="my_bookings_subtitle">View and manage your upcoming appointments.</string>
+    <string name="back_to_dashboard">BACK TO DASHBOARD</string>
+
+    <string name="login_to_view_bookings">Please log in to view your bookings.</string>
+    <string name="loading_bookings">Loading your bookings…</string>
+    <string name="no_bookings">You have no bookings yet.</string>
+    <string name="unknown_service">Unknown service</string>
+    <string name="not_specified">Not specified</string>
+    <string name="load_bookings_failed">Could not load bookings. Please try again.</string>
+
+    <!-- Booking details -->
+    <string name="booking_details">Date: %1$s\nTime: %2$s\nPrice: R%3$s</string>
+    <string name="booking_status">Status: %1$s</string>
+
+    <!-- Cancellation -->
+    <string name="cancel_appointment">CANCEL APPOINTMENT</string>
+    <string name="appointment_cancelled_label">THIS APPOINTMENT HAS BEEN CANCELLED</string>
+    <string name="cancel_dialog_title">Cancel appointment</string>
+    <string name="cancel_dialog_message">Are you sure you want to cancel this appointment?</string>
+    <string name="keep_booking">KEEP BOOKING</string>
+    <string name="confirm_cancel_booking">CANCEL BOOKING</string>
+
+    <!-- Cancellation messages -->
+    <string name="login_again">Please log in again.</string>
+    <string name="appointment_missing">This appointment no longer exists.</string>
+    <string name="cannot_cancel_others_booking">You cannot cancel this appointment.</string>
+    <string name="already_cancelled">This appointment is already cancelled.</string>
+    <string name="cancellation_success">Appointment cancelled successfully.</string>
+    <string name="cancellation_failed">Could not cancel appointment. Please try again.</string>
+</resources>
