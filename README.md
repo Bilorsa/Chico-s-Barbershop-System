@@ -248,18 +248,5 @@ reporting and secure online payments.
 [Watch the Chico's Barbershop
 demonstration](https://advtechonline-my.sharepoint.com/:v:/r/personal/st10460566_rcconnect_edu_za/_layouts/15/stream.aspx?id=%2Fpersonal%2Fst10460566_rcconnect_edu_za%2FDocuments%2FChico%20Demonstration%20Video.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&share=cQqJKBcxEcAbSrncMK8qKZB7EgUCPKMz2n_m4OnZFzfMeY2g3g)
 
-## Project maintenance
 
-1.  Create a feature branch.
-2.  Make a focused change.
-3.  Run relevant local checks.
-4.  Review the diff before committing.
-5.  Push the branch and open a pull request.
-6.  Check GitHub Actions and address failures or warnings.
 
-``` bash
-git checkout -b feature/your-change
-git add .
-git commit -m "Describe your change"
-git push -u origin feature/your-change
-```
