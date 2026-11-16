@@ -1,750 +1,265 @@
-# Chico's Barber Shop — Online Booking System
+# Chico's Barbershop Management System
 
-A modern, responsive barbershop booking system built with **PHP, PDO, MySQL, HTML5 and CSS3**.
+Chico's Barbershop is a barbershop management solution comprising an
+Android application and a companion PHP/MySQL booking website. It
+supports customer access, appointment booking and administrative
+management.
 
-The system provides a customer-facing website, online appointment booking, customer authentication, a My Bookings area, and an administration panel for managing appointments, services and barbers.
+> **CI status:** The reviewed Android GitHub Actions run completed
+> successfully and built the debug APK. The log also showed Gradle
+> unit-test tasks marked `NO-SOURCE`; therefore, that run does not prove
+> that Android unit-test cases were executed.
 
-🎥VIDEO LINK:  [https://youtu.be/We45U3JbSWo](https://advtechonline-my.sharepoint.com/:v:/r/personal/st10460566_rcconnect_edu_za/_layouts/15/stream.aspx?id=%2Fpersonal%2Fst10460566_rcconnect_edu_za%2FDocuments%2FChico%20Demonstration%20Video.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&share=cQqJKBcxEcAbSrncMK8qKZB7EgUCPKMz2n_m4OnZFzfMeY2g3g)
----
+## Project components
 
-## ✂️ Project Overview
+### Android application
 
-**Chico's Barber Shop** is designed around three application layers:
+The Android manifest registers activities for: - Splash screen -
+Customer login and registration - Customer dashboard and profile -
+Appointment booking and My Bookings - Administration dashboard -
+Customer management - Appointment management - Payment management -
+Reports and settings
 
-### 1. Presentation Layer
-- HTML5
-- Responsive CSS3
-- Modern blue/black visual design
-- Premium landing page
-- Service cards with haircut imagery
-- Barber/team profiles
-- Booking interface
-- Mobile-friendly navigation
+### PHP booking website
 
-### 2. Application Layer
-- PHP
-- PDO prepared statements
-- Session-based authentication
-- Appointment validation
-- Availability checking
-- Double-booking protection
-- Customer registration/login
-- Admin functionality
-- Booking confirmation workflow
+The companion website provides a public-facing barbershop experience and
+administration pages. The website documentation describes customer
+registration, login/logout, service and barber selection, appointment
+booking, booking confirmation, booking history, and administration of
+appointments, services and barbers.
 
-### 3. Database Layer
-- MySQL
-- Normalized relational structure
-- Customers
-- Barbers
-- Services
-- Appointments
-- Payments
-- Foreign-key relationships
-- Seed data for initial testing
+## Technology stack
 
----
+  Area                        Technologies
+  --------------------------- -------------------------------------
+  Android                     Android Studio, Android SDK, Gradle
+  Android CI                  GitHub Actions, Java 17
+  Website backend             PHP, PDO
+  Website database            MySQL / MariaDB
+  Website frontend            HTML5, CSS3, JavaScript
+  Local website environment   XAMPP, Apache, phpMyAdmin
+  Source control              Git and GitHub
 
-# 🚀 Features
+The project feedback and demonstration describe Firebase integration in
+the mobile solution. Document the exact Firebase services and how
+Firebase relates to the website's MySQL database in the relevant
+technical documentation. Never commit private keys, service-account
+files or secrets.
 
-## Customer Features
+## Repository structure
 
-### Homepage
-- Chico's Barber Shop branding
-- Premium hero section
-- Services section
-- Barber/team section
-- Client testimonial section
-- Strong "Book Now" calls to action
-- Responsive design
+The Android Gradle project is at the repository root. The GitHub Actions
+workflow is:
 
-### Booking
-Customers can:
-
-1. Select a service
-2. Select a barber
-3. Select an appointment date
-4. View available time slots
-5. Enter their details
-6. Add optional booking notes
-7. Confirm an appointment
-
-The system checks existing appointments before confirming a booking.
-
-### Availability
-The booking system:
-- Uses the selected service duration
-- Checks the selected barber's existing appointments
-- Prevents overlapping bookings
-- Prevents past appointments
-- Keeps bookings within configured business hours
-- Updates available slots based on existing bookings
-
-### Customer Accounts
-Customers can:
-- Register
-- Log in
-- Log out
-- View their bookings
-- Review upcoming appointments
-- Review previous bookings
-
----
-
-# 🛠️ Admin Features
-
-The administration area provides management pages for:
-
-- Dashboard
-- Appointments
-- Services
-- Barbers
-
-Administrators can review appointments and manage the information used by the booking system.
-
-Admin area:
-
-```text
-/admin/
+``` text
+.github/workflows/main.yml
 ```
 
----
+The Android manifest is:
 
-# 🗂️ Project Structure
-
-```text
-chicos_barber_shop/
-│
-├── admin/
-│   ├── index.php
-│   ├── appointments.php
-│   ├── barbers.php
-│   └── services.php
-│
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   │
-│   └── images/
-│       ├── chico-logo.png
-│       ├── classic-cut.webp
-│       ├── skin-fade.webp
-│       ├── beard-x-haircut.webp
-│       ├── barber-chico.webp
-│       ├── barber-joe.webp
-│       ├── barber-mike.webp
-│       └── barber-troy.webp
-│
-├── config/
-│   ├── config.php
-│   └── database.php
-│
-├── database/
-│   └── schema.sql
-│
-├── includes/
-│   ├── auth.php
-│   ├── footer.php
-│   ├── functions.php
-│   └── header.php
-│
-├── admin/
-│
-├── index.php
-├── book.php
-├── booking_success.php
-├── login.php
-├── register.php
-├── logout.php
-├── my_bookings.php
-└── README.md
+``` text
+app/src/main/AndroidManifest.xml
 ```
 
----
+The PHP website is organised into areas such as `admin/`, `assets/`,
+`config/`, `database/` and `includes/`, with entry pages for the
+homepage, booking, login, registration and customer bookings. Confirm
+the exact website folder and paths in the current checkout before
+following the setup steps.
 
-# 💻 Requirements
+## Website setup with XAMPP
 
-You need a local PHP/MySQL development environment such as:
+1.  Install and open XAMPP.
+2.  Start Apache and MySQL.
+3.  Place the PHP website folder inside XAMPP's `htdocs` directory.
+4.  Open phpMyAdmin at `http://localhost/phpmyadmin`.
+5.  Create the database using the name expected by the website's
+    database configuration.
+6.  Import the SQL schema supplied with the website.
+7.  Configure the database host, database name, username and password in
+    the website's database configuration file.
+8.  Open `http://localhost/<website-folder>/`.
 
-- XAMPP
-- WAMP
-- Laragon
-- MAMP
-- Apache + PHP + MySQL/MariaDB
+A typical XAMPP setup may use host `127.0.0.1`, username `root` and an
+empty password, but only use these values if they match your local MySQL
+configuration. Confirm the database name in the project's configuration
+and SQL schema; do not assume a default.
 
-Recommended:
+### Website functional checks
 
-```text
-PHP 8.0+
-MySQL 5.7+ / MariaDB
-Apache
-PDO MySQL extension
+-   Homepage and navigation load.
+-   Customer registration, login and logout work.
+-   A customer can select a service and barber.
+-   A valid future appointment can be submitted and saved.
+-   A booking confirmation is displayed.
+-   Customers can view their bookings.
+-   An authorised administrator can access the administration area.
+-   Appointment, service and barber management pages work.
+-   Invalid input and unavailable appointment times are rejected
+    appropriately.
+
+## Android setup
+
+1.  Install Android Studio.
+2.  Open the repository in Android Studio.
+3.  Install the Android SDK platform and build tools required by the
+    Gradle project.
+4.  Use JDK 17 to match the current CI configuration.
+5.  Allow Gradle to sync and download dependencies.
+6.  Configure required Firebase settings locally, following the app's
+    approved setup.
+7.  Select an emulator or connected Android device and run the
+    application.
+
+Do not commit `local.properties`: it contains a machine-specific Android
+SDK path. Keep it local and add it to `.gitignore`.
+
+Gradle commands from the repository root:
+
+``` bash
+./gradlew test
+./gradlew assembleDebug
 ```
 
----
+On Windows PowerShell:
 
-# ⚙️ Installation
-
-## Step 1 — Install XAMPP
-
-Install XAMPP and start:
-
-```text
-Apache
-MySQL
+``` powershell
+.\gradlew.bat test
+.\gradlew.bat assembleDebug
 ```
 
----
+## Testing and continuous integration
 
-## Step 2 — Copy the project
+The GitHub Actions workflow is named **Chico Android CI** and is stored
+in `.github/workflows/main.yml`. It runs for pushes to `main` or
+`master`, pull requests targeting those branches, and manual
+`workflow_dispatch` runs.
 
-Copy the project folder into XAMPP's web directory:
+The workflow: 1. Checks out the repository. 2. Sets up Java 17. 3.
+Verifies the Android SDK. 4. Sets up Gradle and makes the wrapper
+executable. 5. Runs `./gradlew test`. 6. Builds the debug APK using
+`./gradlew assembleDebug`. 7. Uploads available test reports. 8. Uploads
+the debug APK after a successful build.
 
-```text
-C:\xampp\htdocs\
+### Important interpretation of the reviewed run
+
+The reviewed log included:
+
+``` text
+:app:compileDebugUnitTestKotlin NO-SOURCE
+:app:testDebugUnitTest NO-SOURCE
+:app:testReleaseUnitTest NO-SOURCE
 ```
 
-For example:
+`NO-SOURCE` means Gradle found no source files for those test tasks. The
+green workflow result confirms that the workflow completed and the APK
+build succeeded, but it must not be presented as evidence that unit-test
+cases passed. Add real test classes, rerun the workflow and inspect the
+report for the number of tests executed, passed, failed and skipped.
 
-```text
-C:\xampp\htdocs\chicos_barber_shop\
+### Manual test record
+
+Record actual outcomes and attach screenshots or other evidence. Do not
+mark a test as passed until it has been executed.
+
+  --------------------------------------------------------------------------
+  Area              Test                 Expected result   Actual result
+  ----------------- -------------------- ----------------- -----------------
+  Android           Launch application   App starts and    To be recorded
+                                         displays its      
+                                         opening screen    
+
+  Android           Customer             Valid details are To be recorded
+                    registration         accepted          
+
+  Android           Customer login       Valid credentials To be recorded
+                                         authenticate the  
+                                         user              
+
+  Android           Appointment booking  Valid booking     To be recorded
+                                         details are       
+                                         handled           
+
+  Android           My Bookings          Customer can view To be recorded
+                                         their bookings    
+
+  Android           Administration       Authorised        To be recorded
+                                         administrator     
+                                         accesses          
+                                         management        
+                                         screens           
+
+  Website           Homepage             Website loads     To be recorded
+                                         without PHP       
+                                         errors            
+
+  Website           Registration/login   Customer          To be recorded
+                                         authentication    
+                                         works             
+
+  Website           Appointment booking  Valid booking is  To be recorded
+                                         stored            
+
+  Website           Availability         Past, invalid or  To be recorded
+                                         conflicting slots 
+                                         are rejected      
+                                         where applicable  
+
+  Website           Administration       Appointment,      To be recorded
+                                         barber and        
+                                         service           
+                                         management work   
+
+  Database          Connection           Website connects  To be recorded
+                                         to configured     
+                                         MySQL database    
+  --------------------------------------------------------------------------
+
+## Security and configuration
+
+-   Keep database credentials and API keys out of source control.
+-   Do not commit `local.properties`, Firebase private keys or
+    service-account credentials.
+-   Use PDO prepared statements for database operations.
+-   Hash passwords using PHP password-hashing functions.
+-   Validate input on the server, not only in the browser.
+-   Restrict administration functions to authorised users.
+-   Use HTTPS and secure session-cookie settings in production.
+-   Use a database account with only the permissions required.
+-   Back up the database before importing scripts that may recreate or
+    delete tables.
+-   Replace development and seeded credentials before deployment.
+
+## Known limitations and future improvements
+
+Recommended work: - Add and execute meaningful Android unit tests; the
+reviewed CI log reports test tasks as `NO-SOURCE`. - Add automated PHP
+syntax and website tests to GitHub Actions. - Document API endpoints,
+request/response formats and authentication requirements. - Document the
+Firebase/MySQL relationship and provide a complete database model/ERD. -
+Record functional test results and retain test reports. - Review Android
+API deprecation warnings. - Review GitHub Actions runtime/deprecation
+warnings and update action versions using official release guidance. -
+Consider appointment notifications, rescheduling, cancellation, improved
+reporting and secure online payments.
+
+## Demonstration
+
+[Watch the Chico's Barbershop
+demonstration](https://advtechonline-my.sharepoint.com/:v:/r/personal/st10460566_rcconnect_edu_za/_layouts/15/stream.aspx?id=%2Fpersonal%2Fst10460566_rcconnect_edu_za%2FDocuments%2FChico%20Demonstration%20Video.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&share=cQqJKBcxEcAbSrncMK8qKZB7EgUCPKMz2n_m4OnZFzfMeY2g3g)
+
+## Project maintenance
+
+1.  Create a feature branch.
+2.  Make a focused change.
+3.  Run relevant local checks.
+4.  Review the diff before committing.
+5.  Push the branch and open a pull request.
+6.  Check GitHub Actions and address failures or warnings.
+
+``` bash
+git checkout -b feature/your-change
+git add .
+git commit -m "Describe your change"
+git push -u origin feature/your-change
 ```
-
----
-
-## Step 3 — Create the database
-
-Open:
-
-```text
-http://localhost/phpmyadmin
-```
-
-Create a database, for example:
-
-```text
-chicos_barbershop
-```
-
-Then select the database and import:
-
-```text
-database/schema.sql
-```
-
-The schema contains the required tables and seed data.
-
----
-
-# 🔐 Database Configuration
-
-Open:
-
-```text
-config/database.php
-```
-
-Update the database settings if required.
-
-Typical XAMPP configuration:
-
-```php
-$host = '127.0.0.1';
-$db   = 'chicos_barbershop';
-$user = 'root';
-$pass = '';
-```
-
-If your MySQL installation has a password, replace the empty password with your MySQL password.
-
----
-
-# 🌐 Run the Website
-
-Open:
-
-```text
-http://localhost/chicos_barber_shop/
-```
-
-The homepage should load.
-
-Then click:
-
-```text
-Book Now
-```
-
-to test the booking system.
-
----
-
-# 📅 Test the Booking System
-
-Recommended testing sequence:
-
-### 1. Open the website
-
-```text
-http://localhost/chicos_barber_shop/
-```
-
-### 2. Select a service
-
-Example:
-
-```text
-Classic Cut
-```
-
-### 3. Select a barber
-
-Example:
-
-```text
-Chico
-```
-
-### 4. Select a future date
-
-Choose a date that is not in the past.
-
-### 5. Select an available time
-
-The system displays available appointment slots based on the barber's existing appointments.
-
-### 6. Enter customer details
-
-For a guest booking, provide:
-
-```text
-Name
-Phone
-Email
-```
-
-### 7. Confirm
-
-The system creates:
-
-```text
-Appointment
-Payment record
-```
-
-and displays the booking confirmation.
-
----
-
-# 🔒 Booking Protection
-
-The booking system performs server-side validation.
-
-It checks:
-
-- Service exists
-- Barber exists
-- Date is valid
-- Time is valid
-- Appointment is not in the past
-- Appointment fits within opening hours
-- Barber is not already booked
-- Appointment duration does not overlap another appointment
-
-The appointment insert is performed inside a database transaction to reduce the risk of race-condition double bookings.
-
----
-
-# 💳 Payments
-
-The current system creates a payment record when an appointment is confirmed.
-
-The default payment state is:
-
-```text
-unpaid
-```
-
-and the default method is:
-
-```text
-cash
-```
-
-This provides a foundation for adding an online payment provider later.
-
-Possible integrations include:
-
-- PayFast
-- Stripe
-- PayPal
-
----
-
-# 🧑‍💼 Admin Area
-
-Open:
-
-```text
-http://localhost/chicos_barber_shop/admin/
-```
-
-The admin area provides access to:
-
-```text
-Dashboard
-Appointments
-Services
-Barbers
-```
-
-Use the seeded database/admin credentials from `database/schema.sql` where applicable.
-
-For production, change all seeded credentials before deployment.
-
----
-
-# 🗄️ Database Model
-
-The core database entities are:
-
-```text
-CUSTOMERS
-    │
-    └──< APPOINTMENTS >── BARBERS
-              │
-              └── SERVICES
-              │
-              └── PAYMENTS
-```
-
-### Customers
-
-Stores customer information and authentication data.
-
-### Barbers
-
-Stores barber profiles and availability status.
-
-### Services
-
-Stores haircut/service information including:
-
-- Name
-- Duration
-- Price
-- Active status
-
-### Appointments
-
-Connects:
-
-```text
-Customer
-Barber
-Service
-Date/time
-Status
-Notes
-```
-
-### Payments
-
-Stores payment information associated with appointments.
-
----
-
-# 🎨 Design System
-
-The website uses a premium dark theme based on:
-
-```text
-Primary:      Blue
-Secondary:    Black
-Background:   #05070B
-Panel:        #111827
-Accent:       #1683FF
-Accent Light: #45A3FF
-Text:         #F8FBFF
-Muted:        #94A3B8
-```
-
-The interface is designed to feel:
-
-- Premium
-- Clean
-- Modern
-- Professional
-- Mobile friendly
-
----
-
-# 📱 Responsive Design
-
-The website adapts to:
-
-- Desktop
-- Laptop
-- Tablet
-- Mobile
-
-The navigation switches to a mobile menu on smaller screens.
-
-Booking forms and service cards also adapt to smaller displays.
-
----
-
-# 🧪 Suggested Test Cases
-
-Before deployment, test:
-
-### Customer
-
-- [ ] Register account
-- [ ] Login
-- [ ] Logout
-- [ ] Guest booking
-- [ ] Logged-in booking
-- [ ] Select service
-- [ ] Select barber
-- [ ] Select date
-- [ ] Select time
-- [ ] Confirm appointment
-- [ ] View My Bookings
-
-### Availability
-
-- [ ] Book an available slot
-- [ ] Attempt to book the same slot twice
-- [ ] Attempt to book a past time
-- [ ] Attempt to book outside business hours
-- [ ] Test different service durations
-
-### Admin
-
-- [ ] Open dashboard
-- [ ] View appointments
-- [ ] Add/edit services
-- [ ] Add/edit barbers
-- [ ] Verify new services appear on booking page
-- [ ] Verify new barbers appear on booking page
-
----
-
-# 🔧 Customization
-
-## Change Business Hours
-
-The current booking logic uses:
-
-```text
-09:00 — 18:00
-```
-
-Update the opening/closing values in:
-
-```text
-book.php
-```
-
----
-
-## Change Appointment Interval
-
-The current booking slots are generated every:
-
-```text
-30 minutes
-```
-
-This can be changed in the slot-generation logic in:
-
-```text
-book.php
-```
-
----
-
-## Add Services
-
-Services can be added through the admin area or directly through MySQL.
-
-Once a service is active, it becomes available to customers in the booking system.
-
----
-
-## Add Barbers
-
-Barbers can be managed through:
-
-```text
-/admin/barbers.php
-```
-
-Active barbers appear in the booking form.
-
----
-
-# 🔐 Security Notes
-
-The project uses several basic security practices:
-
-- PDO prepared statements
-- Password hashing through PHP password functions
-- Session authentication
-- CSRF protection for booking forms
-- Server-side validation
-- Database transactions for booking creation
-
-For production deployment, also configure:
-
-- HTTPS
-- Secure session cookies
-- Environment variables for database credentials
-- Strong admin passwords
-- Database user permissions
-- Production error logging
-- Email verification
-- Rate limiting
-- Automated backups
-
-Never commit real production database passwords into a public repository.
-
----
-
-# 🚀 Future Improvements
-
-Recommended production upgrades:
-
-### Payments
-
-Add:
-
-```text
-PayFast / Stripe / PayPal
-```
-
-### Notifications
-
-Add:
-
-```text
-Email confirmation
-SMS confirmation
-WhatsApp confirmation
-Appointment reminders
-```
-
-### Advanced Scheduling
-
-Add:
-
-```text
-Barber working hours
-Days off
-Holiday blocking
-Break periods
-Multiple locations
-```
-
-### Admin Dashboard
-
-Add:
-
-```text
-Calendar view
-Revenue analytics
-Daily appointment statistics
-Customer management
-Payment reports
-Export to CSV/PDF
-```
-
-### Customer Experience
-
-Add:
-
-```text
-Reschedule appointment
-Cancel appointment
-Favourite barber
-Booking history
-Online reviews
-Loyalty programme
-```
-
----
-
-# 📐 System Architecture
-
-```text
-┌─────────────────────────┐
-│       CUSTOMER          │
-│  Desktop / Tablet /     │
-│        Mobile           │
-└────────────┬────────────┘
-             │
-             ▼
-┌─────────────────────────┐
-│       PRESENTATION      │
-│       HTML5 + CSS       │
-│       JavaScript        │
-└────────────┬────────────┘
-             │
-             ▼
-┌─────────────────────────┐
-│     APPLICATION         │
-│          PHP            │
-│ Authentication          │
-│ Booking Logic           │
-│ Validation              │
-│ Admin Functions         │
-└────────────┬────────────┘
-             │ PDO
-             ▼
-┌─────────────────────────┐
-│        MYSQL            │
-│ Customers               │
-│ Barbers                 │
-│ Services                │
-│ Appointments            │
-│ Payments                │
-└─────────────────────────┘
-```
-
----
-
-# 🗺️ Main Site Map
-
-```text
-HOME
-│
-├── Services
-│   └── Service Details
-│
-├── Barbers
-│   └── Barber Profiles
-│
-├── Book Appointment
-│   ├── Select Service
-│   ├── Select Barber
-│   ├── Select Date
-│   ├── Select Time
-│   ├── Customer Details
-│   └── Confirmation
-│
-├── My Bookings
-│   ├── Upcoming
-│   └── Previous
-│
-├── Login
-├── Register
-│
-└── Admin
-    ├── Dashboard
-    ├── Appointments
-    ├── Services
-    └── Barbers
-```
-🎥YT LINK: https://youtu.be/We45U3JbSWo
-
